@@ -21,4 +21,6 @@ Route::group(['middleware'=>'auth'],function(){
 		Route::get('table',['as'=>'table','uses'=>'TableController@index']);
 		Route::get('media',['as'=>'media','uses'=>'MediaController@index']);
 		Route::get('chart',['as'=>'chart','uses'=>'ChartController@index']);
+		Route::get('bases', 'DatatablesController@index');
+		Route::get('get-bases-data', 'DatatablesController@basesData')->name('datatables.bases');
 	});
