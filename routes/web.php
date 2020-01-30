@@ -11,6 +11,8 @@
 |
 */
 
+use App\Http\Controllers\BasesController;
+
 Auth::routes();
 
 Route::group(['middleware'=>'auth'],function(){
@@ -21,6 +23,7 @@ Route::group(['middleware'=>'auth'],function(){
 		Route::get('table',['as'=>'table','uses'=>'TableController@index']);
 		Route::get('media',['as'=>'media','uses'=>'MediaController@index']);
 		Route::get('chart',['as'=>'chart','uses'=>'ChartController@index']);
-		Route::get('bases', 'DatatablesController@index');
-		Route::get('get-bases-data', 'DatatablesController@basesData')->name('datatables.bases');
+		Route::get('bases', 'BasesController@index')->name('bases');
+		Route::get('get-bases-data', 'BasesController@basesData')->name('datatables.bases');
+		Route::post('change_base/{id}', 'BasesController@setBase')->name('change_base');
 	});
