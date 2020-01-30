@@ -8,6 +8,7 @@
     <title>Welcome To | Bootstrap Based Admin Template - Material Design</title>
     <!-- Favicon-->
     <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Bootstrap Core Css -->
     @section('css')

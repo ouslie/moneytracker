@@ -1,4 +1,24 @@
 ﻿$(function () {
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    $("#bases").change(function() {
+        var bases =$("#bases").val();
+        console.log(bases);
+        $.ajax({
+            type: "POST",
+            url: "change_base/"+ bases,
+            success: function(data){
+            console.log(data);
+            $("#bases").val(data);
+            location.reload();
+            },
+        });
+    });
+
+
     //Widgets count
     $('.count-to').countTo();
 
@@ -13,6 +33,8 @@
     initDonutChart();
     initSparkline();
 });
+
+
 
 var realtime = 'on';
 function initRealTimeChart() {
