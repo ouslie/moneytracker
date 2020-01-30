@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Scopes\BaseScope as BaseScope;
+use App\Scopes\UserScope;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,6 +15,24 @@ class Bases extends Model
     {
         parent::boot();
 
-        static::addGlobalScope(new BaseScope);
+        static::addGlobalScope(new UserScope);
+    }
+
+    public static function defaultBase() {
+
+        $base = Bases::where('is_default', '=', 1)->first();
+
+        if($base->count() == 1) {
+            $base_id =  $base->id;
+        } else {
+            $base = Base::first();
+            $base_id =  $base->id;
+        }
+        return $base_id;
+    }
+
+    public static function activeBase()
+    {
+        return Session::get('base_id');
     }
 }

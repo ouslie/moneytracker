@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Yajra\Datatables\Datatables;
 use App\Bases;
+use Session;
 
 class BasesController extends Controller
 {
@@ -18,13 +19,10 @@ class BasesController extends Controller
         return Datatables::of(Bases::query())->make(true);
     }
 
-
-    public function setBase($base_id)
+    public function setBase(Request $request, $id)
     {
-        
-        session(['active_base'=> $base_id]);
-        return view('layouts.dashboard.index');
+        Session::put('base_id', $id);
+        return $id;
     }
-
 
 }

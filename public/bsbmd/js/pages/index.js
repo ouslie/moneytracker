@@ -9,7 +9,7 @@
         console.log(bases);
         $.ajax({
             type: "POST",
-            url: "change_base/"+ bases,
+            url: "set_base/"+ bases,
             success: function(data){
             console.log(data);
             $("#bases").val(data);

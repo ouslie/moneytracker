@@ -18,6 +18,9 @@
         {{ Html::style('bsbmd/plugins/morrisjs/morris.css') }}
         {{ Html::style('bsbmd/css/style.css') }}
         {{ Html::style('bsbmd/css/themes/all-themes.css') }}
+        {{ Html::style('bsbmd/plugins/bootstrap-select/css/bootstrap-select.css') }}
+
+
 
          <!-- Google Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&subset=latin,cyrillic-ext" rel="stylesheet" type="text/css">

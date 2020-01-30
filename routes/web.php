@@ -25,5 +25,9 @@ Route::group(['middleware'=>'auth'],function(){
 		Route::get('chart',['as'=>'chart','uses'=>'ChartController@index']);
 		Route::get('bases', 'BasesController@index')->name('bases');
 		Route::get('get-bases-data', 'BasesController@basesData')->name('datatables.bases');
-		Route::post('change_base/{id}', 'BasesController@setBase')->name('change_base');
+
+		Route::get('categories', 'CategoriesController@index')->name('categories');
+		Route::get('get-categories-data', 'CategoriesController@categoriesData')->name('datatables.categories');
+
+		Route::post('set_base/{id}', 'BasesController@setBase')->name('change_base');
 	});
