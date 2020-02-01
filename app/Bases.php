@@ -25,7 +25,7 @@ class Bases extends Model
         if($base->count() == 1) {
             $base_id =  $base->id;
         } else {
-            $base = Base::first();
+            $base = Bases::first();
             $base_id =  $base->id;
         }
         return $base_id;

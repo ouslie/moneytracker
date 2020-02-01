@@ -8,9 +8,10 @@
             </a>
             <a href="{{route('bases')}}"><i class="material-icons">settings</i>Gestion bases</a>
             <div class="info-container">
+                {{-- {{$toto}}    --}}
                 <select id="bases" name="bases">
-                    @foreach($bases)
-                    <option value="{{$base->id}}" {{$active_base==$base->id ? 'selected' : ''}}>Base active : {{$base->name}}</option>
+                    @foreach($bases as $base)
+                        <option value="{{$base->id}}" {{$active_base==$base->id ? 'selected' : ''}}>Base active : {{$base->name}}</option>
                     @endforeach
                 </select>
             </div>

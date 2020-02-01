@@ -29,5 +29,8 @@ Route::group(['middleware'=>'auth'],function(){
 		Route::get('categories', 'CategoriesController@index')->name('categories');
 		Route::get('get-categories-data', 'CategoriesController@categoriesData')->name('datatables.categories');
 
+		Route::get('account', 'AccountController@index')->name('account');
+		Route::get('get-account-data', 'AccountController@accountData')->name('datatables.account');
+
 		Route::post('set_base/{id}', 'BasesController@setBase')->name('change_base');
 	});
